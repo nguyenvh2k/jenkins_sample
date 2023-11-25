@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  app:
+    container_name: app
+    build: nguyenvh2/sample:latest
+    ports:
+      - "9000:8080" # host-port : container-port
+    volumes:
+      - /home/web/logs:/home/web/logs # host-direction(volume) : container-direction(volume)
