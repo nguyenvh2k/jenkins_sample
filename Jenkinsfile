@@ -4,7 +4,7 @@ pipeline{
     environment {
         version = 'latest'
         image='sample'
-        host='34.87.48.221'
+        host='10.21.24.128'
     }
     stages {
         stage('Build Jar file') {
