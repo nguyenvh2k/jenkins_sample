@@ -35,9 +35,9 @@ pipeline{
         }
         stage("Copy env and deloy for Cloud"){
             steps{
-                sshagent(credentials: ['vps_227']){
-                    sh "scp -o StrictHostKeyChecking=no docker-compose.yaml deploy.sh root@${host}:~/web"
-                    sh "ssh -o StrictHostKeyChecking=no root@${host}  '(cd web;chmod u+x deploy.sh; ./deploy.sh)'"
+                sshagent(credentials: ['vpc-03']){
+                    sh "scp -o StrictHostKeyChecking=no docker-compose.yaml deploy.sh logjava@${host}:~/web"
+                    sh "ssh -o StrictHostKeyChecking=no logjava@${host}  'echo OK'"
                 }
             }
         }
