@@ -36,7 +36,8 @@ pipeline{
         stage("Copy env and deloy for Cloud"){
             steps{
                 sshagent(credentials: ['vpc-03']){
-                    sh "ssh -o StrictHostKeyChecking=no logjava@${host}  './start-api.sh'"
+                sh "ssh -o StrictHostKeyChecking=no ubuntu@${host}  'echo Connect Successfully'"
+                    sh "ssh -o StrictHostKeyChecking=no ubuntu@${host}  './start-api.sh'"
                 }
             }
         }
