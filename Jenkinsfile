@@ -4,7 +4,7 @@ pipeline{
     environment {
         version = 'latest'
         image='sample'
-        host='10.21.24.128'
+        host='10.147.19.89'
     }
     stages {
         stage('Build Jar file') {
@@ -36,8 +36,7 @@ pipeline{
         stage("Copy env and deloy for Cloud"){
             steps{
                 sshagent(credentials: ['vpc-03']){
-                    sh "scp -o StrictHostKeyChecking=no docker-compose.yaml deploy.sh logjava@${host}:~/web"
-                    sh "ssh -o StrictHostKeyChecking=no logjava@${host}  'echo OK'"
+                    sh "ssh -o StrictHostKeyChecking=no logjava@${host}  './start-api.sh'"
                 }
             }
         }
